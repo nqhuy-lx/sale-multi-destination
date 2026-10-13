@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_delivery_destination_user,sale.order.delivery.destination user,model_sale_order_delivery_destination,sales_team.group_sale_salesman,1,1,1,1
+access_sale_order_delivery_line_user,sale.order.delivery.line user,model_sale_order_delivery_line,sales_team.group_sale_salesman,1,1,1,1

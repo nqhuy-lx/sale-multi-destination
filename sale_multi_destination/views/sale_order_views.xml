@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_order_form_multi_destination" model="ir.ui.view">
+        <field name="name">sale.order.form.multi.destination</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Delivery Destinations"
+                      name="delivery_destinations">
+                    <field name="delivery_destination_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                        </list>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="Products">
+                                        <field name="delivery_line_ids">
+                                            <list editable="bottom">
+                                                <field name="order_id" column_invisible="True"/>
+                                                <field name="sale_line_id"
+                                                       domain="[('order_id', '=', parent.order_id)]"/>
+                                                <field name="ordered_quantity" readonly="1"/>
+                                                <field name="quantity"/>
+                                                <field name="remaining_quantity" readonly="1"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
